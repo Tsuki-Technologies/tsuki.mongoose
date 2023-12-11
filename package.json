@@ -1,0 +1,50 @@
+{
+    "name": "tsuki.mongoose",
+    "version": "0.0.1",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "main": "dist/index.js",
+    "description": "A simple method made to facilitate the use of MongoDB.",
+    "author": "itsmicky777",
+    "files": [
+        "dist"
+    ],
+    "license": "MIT",
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^6.4.1",
+        "@typescript-eslint/parser": "^6.4.1",
+        "@typescript-eslint/typescript-estree": "^6.4.1",
+        "eslint": "^8.48.0",
+        "ts-node": "^10.9.2",
+        "tslib": "^2.6.2",
+        "tsup": "^8.0.1"
+    },
+    "dependencies": {
+        "dotenv": "^16.0.3",
+        "mongoose": "^8.0.3",
+        "typescript": "^5.2.0-beta"
+    },
+    "scripts": {
+        "build": "tsup",
+        "test": "ts-node src/index.ts",
+        "lint": "eslint src --ext .ts",
+        "lint:fix": "eslint src --ext .ts --fix"
+    },
+    "keywords": [
+        "database",
+        "mongoose",
+        "mongodb",
+        "schema",
+        "api"
+    ],
+    "tsup": {
+        "entryPoints": ["src"],
+        "skipNodeModulesBundle": true,
+        "tsconfig": "./tsconfig.json",
+        "format": ["esm", "cjs"],
+        "target": "ESNext",
+        "outDir": "./dist",
+        "clean": true,
+        "dts": true
+    }
+}
