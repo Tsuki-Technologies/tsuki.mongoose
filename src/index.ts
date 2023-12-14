@@ -198,12 +198,13 @@ export class Database extends BaseDatabase {
         
         try {
             const url = options.url;
+            const opts = {} as ConnectOptions;
             
             for(const key in options) {
-                if(['url', 'autoConnect', 'returnErrors', 'warnReady'].includes(key)) delete options[key];
+                if(!['url', 'autoConnect', 'returnErrors', 'warnReady'].includes(key)) opts[key] = options[key];
             }
             
-            const connection = createConnection(url, options as ConnectOptions);
+            const connection = createConnection(url, opts as ConnectOptions);
             this.connection = connection;
             
             this.model = connection.model('DATABASE', DocumentSchema);
